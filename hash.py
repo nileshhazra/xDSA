@@ -25,3 +25,17 @@ def anagrams(s1, s2):
 
 
 print(anagrams('car','ract'))
+
+
+def most_frequent_char(s):
+    count = Counter(s)
+
+    res = None
+
+    for char in s:
+        if res is None or count[char] > count[res]:
+            res = char
+
+    return res
+
+print(most_frequent_char('skepticisms'))
