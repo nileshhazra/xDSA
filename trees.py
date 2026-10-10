@@ -95,3 +95,12 @@ def tree_value_count(root, target):
   match = 1 if root.val == target else 0
 
   return match + tree_value_count(root.left, target) + tree_value_count(root.right, target)
+
+
+def how_high(root):
+  if root is None:
+    return -1
+
+  left_height = how_high(root.left)
+  right_height = how_high(root.right)
+  return 1 + max(left_height, right_height)
