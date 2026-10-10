@@ -104,3 +104,21 @@ def how_high(root):
   left_height = how_high(root.left)
   right_height = how_high(root.right)
   return 1 + max(left_height, right_height)
+
+
+from collections import deque
+
+def bottom_right_value(root):
+  queue = deque([ root ])
+  current = None
+
+  while queue:
+    current = queue.popleft()
+
+    if current.left is not None:
+      queue.append(current.left)
+
+    if current.right is not None:
+      queue.append(current.right)
+
+  return current.val
